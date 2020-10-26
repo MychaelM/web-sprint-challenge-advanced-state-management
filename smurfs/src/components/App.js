@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import { connect } from 'react-redux';
 import { getSmurfs } from '../actions';
+import SmurfForm from './SmurfForm';
 
 class App extends Component {
   // constructor(props) {
@@ -16,6 +17,7 @@ class App extends Component {
       <div className="App">
         <h1>SMURFS! W/Redux</h1>
         <button onClick={this.props.getSmurfs} >Get Smurfs</button>
+        <SmurfForm />
         {this.props.smurfs.map(smurf => (
           <div key={smurf.id}>
             <h2>{smurf.name}</h2>
