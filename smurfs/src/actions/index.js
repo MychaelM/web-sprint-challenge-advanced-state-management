@@ -1,4 +1,6 @@
 import axios from 'axios';
+import e from 'express';
+// import { bindActionCreators } from 'redux';
 
 export const getSmurfs = () => (dispatch) => {
   dispatch({type: "FETCHING_SMURFS_START"});
@@ -13,3 +15,9 @@ export const getSmurfs = () => (dispatch) => {
       dispatch({type: "FETCHING_SMURFS_FAILURE", payload: err})
     });
 };
+
+export const addSmurf = (newSmurf) => (dispatch) => {
+  e.preventDefault();
+  console.log(newSmurf);
+  dispatch({type: "SUBMITTING_SMURF_START", payload: newSmurf})
+} 

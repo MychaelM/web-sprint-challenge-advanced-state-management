@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { addSmurf } from '../actions';
 
 const SmurfForm = (props) => {
 const [formData, setFormData] = useState({
@@ -49,9 +51,19 @@ return (
     value={formData.height}
     />
     <br/>
+
+    <button onClick={props.addSmurf}>Submit</button>
   </form>
   </>
 )
 }
 
-export default SmurfForm;
+const mapStateToProps = (state) => {
+  return {
+    state: state
+  }
+}
+
+const mapDispatchToProps = { addSmurf };
+
+export default connect(mapStateToProps, mapDispatchToProps)(SmurfForm);

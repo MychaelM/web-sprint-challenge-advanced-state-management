@@ -1,5 +1,6 @@
 const initialState = {
-  smurfs: []
+  smurfs: [],
+  newSmurf: {}
 };
 
 export const smurfReducer = (state = initialState, action) => {
@@ -7,7 +8,13 @@ export const smurfReducer = (state = initialState, action) => {
     case "FETCHING_SMURFS_SUCCESS":
       return {
         ...state,
-        smurfs: action.payload
+        smurfs: action.payload,
+      };
+
+    case "SUBMITTING_SMURF_START":
+      return {
+        ...state,
+        newSmurf: action.payload
       }
 
     default:
