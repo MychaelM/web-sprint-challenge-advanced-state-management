@@ -7,7 +7,7 @@ const [formData, setFormData] = useState({
   name: "",
   age: 0,
   height: "",
-  id: Date.now(),
+  // id: Date.now(),
 })
 
 const handleChanges = (e) => {
@@ -18,10 +18,20 @@ const handleChanges = (e) => {
   })
 }
 
+const onSubmit = e => {
+  e.preventDefault();
+  // setFormData({
+  // name: "",
+  // age: 0,
+  // height: "",
+  // id: Date.now(),
+  // })
+}
+
 return (
   <>
   <h2>Add New Smurf</h2>
-  <form>
+  <form onSubmit={onSubmit}>
     <label htmlFor="name">Smurf Name: </label>
     <input 
     type="text" 
@@ -44,7 +54,7 @@ return (
 
     <label htmlFor="height">Smurf Height: </label>
     <input 
-    type="number" 
+    type="text" 
     name="height" 
     id="height"
     onChange={handleChanges}
@@ -52,7 +62,7 @@ return (
     />
     <br/>
 
-    <button onClick={props.addSmurf}>Submit</button>
+    <button onClick={() => props.addSmurf(formData)}>Submit</button>
   </form>
   </>
 )

@@ -1,6 +1,12 @@
 import axios from 'axios';
-import e from 'express';
+// import e from 'express';
 // import { bindActionCreators } from 'redux';
+
+const testSmurf = {
+  name: "Brainey",
+  age: 200,
+  height: "5cm",
+};
 
 export const getSmurfs = () => (dispatch) => {
   dispatch({type: "FETCHING_SMURFS_START"});
@@ -17,7 +23,15 @@ export const getSmurfs = () => (dispatch) => {
 };
 
 export const addSmurf = (newSmurf) => (dispatch) => {
-  e.preventDefault();
+  // e.preventDefault();
   console.log(newSmurf);
+  // axios
+  //   .post(`http://localhost:3333/smurfs`, newSmurf)
+  //   .then((res) => {
+  //     console.log(res);
+  //   })
+  //   .catch((err) => {
+  //     console.log(err);
+  //   });
   dispatch({type: "SUBMITTING_SMURF_START", payload: newSmurf})
 } 
